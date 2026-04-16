@@ -12,10 +12,10 @@ typedef struct HashMap HashMap;
 int enlarge_called=0;
 
 struct HashMap {
-    Pair ** buckets;
-    long size; //cantidad de datos/pairs en la tabla
-    long capacity; //capacidad de la tabla
-    long current; //indice del ultimo dato accedido
+    Pair ** par;
+    long largo; //cantidad de datos/pairs en la tabla
+    long capacidad; //capacidad de la tabla
+    long actual; //indice del ultimo dato accedido
 };
 
 Pair * createPair( char * key,  void * value) {
@@ -34,7 +34,7 @@ long hash( char * key, long capacity) {
     return hash%capacity;
 }
 
-int is_equal(void* key1, void* key2){
+int es_igual(void* key1, void* key2){
     if(key1==NULL || key2==NULL) return 0;
     if(strcmp((char*)key1,(char*)key2) == 0) return 1;
     return 0;
@@ -58,8 +58,30 @@ HashMap * createMap(long capacity) {
 //    c - Ingrese el par en la casilla que encontró.
 // No inserte claves repetidas. Recuerde que el arreglo es circular. Recuerde actualizar la variable size.
 
-void insertMap(HashMap * map, char * key, void * value) {
+void insertMap(HashMap * mapa, char * clave, void * valor) {
+    if (mapa == NULL || clave == NULL)
+    {
+        return;
+    }
 
+    long posicion = hash(clave, mapa->capacidad);
+    long primero = posicion;
+
+    while(mapa->par[posicion] != NULL && mapa->par[posicion]->key != NULL)
+        {
+            if(esIgual(mapa->par[posicion]->key, clave))
+            {
+                return;
+            }
+            posicion = (posicion + 1) % mapa->capacidad;
+            if (posicion == primero)
+            {
+                return;
+            }
+        }
+    mapa->par[posicion] = createPair(key, value);
+    mapa->actual = posicion;
+    mapa->capacidad++;
 }
 
 // 3. Implemente la función Pair * searchMap(HashMap * map, char * key), la cual retorna el Pair asociado a la clave ingresada. 
