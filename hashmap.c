@@ -34,7 +34,7 @@ long hash( char * key, long capacity) {
     return hash%capacity;
 }
 
-int es_igual(void* key1, void* key2){
+int is_equal(void* key1, void* key2){
     if(key1==NULL || key2==NULL) return 0;
     if(strcmp((char*)key1,(char*)key2) == 0) return 1;
     return 0;
@@ -69,7 +69,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     while(map->buckets[posicion] != NULL && map->buckets[posicion]->key != NULL)
         {
-            if(es_igual(map->buckets[posicion]->key, clave))
+            if(is_equal(map->buckets[posicion]->key, clave))
             {
                 return;
             }
