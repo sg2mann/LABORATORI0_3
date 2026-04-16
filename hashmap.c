@@ -73,7 +73,7 @@ void insertMap(HashMap * map, char * key, void * value) {
             {
                 return;
             }
-            posicion = (posicion + 1) % mapa->capacidad;
+            posicion = (posicion + 1) % map->capacity;
             if (posicion == primero)
             {
                 return;

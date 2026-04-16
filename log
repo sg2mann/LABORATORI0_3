@@ -536,3 +536,18 @@ test.c:133:8: error: implicit declaration of function ‘is_equal’ [-Wimplicit
   133 |     if(is_equal("hola","hola")!=1) printf("error: \"hola\"!=\"hola\"\n");
       |        ^~~~~~~~
 919c9f8
+Thu Apr 16 08:35:10 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:72:54: error: ‘clave’ undeclared (first use in this function)
+   72 |             if(es_igual(map->buckets[posicion]->key, clave))
+      |                                                      ^~~~~
+hashmap.c:72:54: note: each undeclared identifier is reported only once for each function it appears in
+test.c: In function ‘compare_test’:
+test.c:133:8: error: implicit declaration of function ‘is_equal’ [-Wimplicit-function-declaration]
+  133 |     if(is_equal("hola","hola")!=1) printf("error: \"hola\"!=\"hola\"\n");
+      |        ^~~~~~~~
+01c297a
