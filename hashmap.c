@@ -13,9 +13,9 @@ int enlarge_called=0;
 
 struct HashMap {
     Pair ** buckets;
-    long largo; //cantidad de datos/pairs en la tabla
-    long capacidad; //capacidad de la tabla
-    long actual; //indice del ultimo dato accedido
+    long size; //cantidad de datos/pairs en la tabla
+    long capacity; //capacidad de la tabla
+    long current; //indice del ultimo dato accedido
 };
 
 Pair * createPair( char * key,  void * value) {
@@ -64,7 +64,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         return;
     }
 
-    long posicion = hash(clave, map->capacidad);
+    long posicion = hash(key, map->capacity);
     long primero = posicion;
 
     while(map->buckets[posicion] != NULL && map->buckets[posicion]->key != NULL)
@@ -80,8 +80,8 @@ void insertMap(HashMap * map, char * key, void * value) {
             }
         }
     map->buckets[posicion] = createPair(key, value);
-    map->actual = posicion;
-    map->capacidad++;
+    map->current = posicion;
+    map->capacity++;
 }
 
 // 3. Implemente la función Pair * searchMap(HashMap * map, char * key), la cual retorna el Pair asociado a la clave ingresada. 

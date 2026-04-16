@@ -517,3 +517,22 @@ test.c:441:29: error: ‘HashMap’ {aka ‘struct HashMap’} has no member nam
       |                             ^~~~~~~~
       |                             capacidad
 938480b
+Thu Apr 16 08:34:53 PM UTC 2026: 
+ hashmap.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:72:54: error: ‘clave’ undeclared (first use in this function)
+   72 |             if(es_igual(map->buckets[posicion]->key, clave))
+      |                                                      ^~~~~
+hashmap.c:72:54: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:76:41: error: ‘mapa’ undeclared (first use in this function); did you mean ‘map’?
+   76 |             posicion = (posicion + 1) % mapa->capacidad;
+      |                                         ^~~~
+      |                                         map
+test.c: In function ‘compare_test’:
+test.c:133:8: error: implicit declaration of function ‘is_equal’ [-Wimplicit-function-declaration]
+  133 |     if(is_equal("hola","hola")!=1) printf("error: \"hola\"!=\"hola\"\n");
+      |        ^~~~~~~~
+919c9f8
