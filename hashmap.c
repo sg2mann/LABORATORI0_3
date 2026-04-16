@@ -69,7 +69,7 @@ void insertMap(HashMap * mapa, char * clave, void * valor) {
 
     while(mapa->buckets[posicion] != NULL && mapa->buckets[posicion]->key != NULL)
         {
-            if(esIgual(mapa->buckets[posicion]->key, clave))
+            if(es_igual(mapa->buckets[posicion]->key, clave))
             {
                 return;
             }
