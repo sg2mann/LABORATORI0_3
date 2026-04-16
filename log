@@ -562,3 +562,9 @@ hashmap.c:72:54: error: ‘clave’ undeclared (first use in this function)
       |                                                      ^~~~~
 hashmap.c:72:54: note: each undeclared identifier is reported only once for each function it appears in
 2d85b70
+Thu Apr 16 08:36:22 PM UTC 2026: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  2|7
+total_score: 0/60
+c339393
