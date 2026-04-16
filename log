@@ -231,3 +231,101 @@ test.c:445:67: error: ‘HashMap’ {aka ‘struct HashMap’} has no member nam
       |                                                                   ^~
 cc1: all warnings being treated as errors
 1af6160
+Thu Apr 16 08:29:43 PM UTC 2026: 
+ hashmap.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘insertMap’:
+hashmap.c:72:16: error: implicit declaration of function ‘esIgual’; did you mean ‘es_igual’? [-Wimplicit-function-declaration]
+   72 |             if(esIgual(mapa->buckets[posicion]->key, clave))
+      |                ^~~~~~~
+      |                es_igual
+hashmap.c:82:42: error: ‘key’ undeclared (first use in this function); did you mean ‘key_t’?
+   82 |     mapa->buckets[posicion] = createPair(key, value);
+      |                                          ^~~
+      |                                          key_t
+hashmap.c:82:42: note: each undeclared identifier is reported only once for each function it appears in
+hashmap.c:82:47: error: ‘value’ undeclared (first use in this function)
+   82 |     mapa->buckets[posicion] = createPair(key, value);
+      |                                               ^~~~~
+test.c: In function ‘initializeMap’:
+test.c:46:10: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’; did you mean ‘capacidad’?
+   46 |     map->capacity = 10;
+      |          ^~~~~~~~
+      |          capacidad
+test.c:57:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   57 |     map->size=6;
+      |        ^~
+test.c: In function ‘createMap_test3’:
+test.c:86:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   86 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |           ^~
+test.c:86:30: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’; did you mean ‘capacidad’?
+   86 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |                              ^~~~~~~~
+      |                              capacidad
+test.c:86:49: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   86 |     if(map->size !=0 || map->capacity!=10 || map->current!=-1){
+      |                                                 ^~
+test.c:92:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+   92 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |           ^~
+test.c:92:30: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’; did you mean ‘capacidad’?
+   92 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |                              ^~~~~~~~
+      |                              capacidad
+test.c:92:48: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+   92 |     if(map->size !=0 || map->capacity!=5 || map->current!=-1){
+      |                                                ^~
+test.c: In function ‘compare_test’:
+test.c:133:8: error: implicit declaration of function ‘is_equal’ [-Wimplicit-function-declaration]
+  133 |     if(is_equal("hola","hola")!=1) printf("error: \"hola\"!=\"hola\"\n");
+      |        ^~~~~~~~
+test.c: In function ‘insert_test1’:
+test.c:155:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  155 |     if(map->size != 7){
+      |           ^~
+test.c: In function ‘insert_test4’:
+test.c:204:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  204 |     map->size=6;
+      |        ^~
+test.c: In function ‘insert_test5’:
+test.c:220:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  220 |     map->size = 7; //se fuerza size=7
+      |        ^~
+test.c: In function ‘search_test1’:
+test.c:249:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  249 |     if(map->current!=7){
+      |           ^~
+test.c: In function ‘search_test3’:
+test.c:281:83: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  281 |         sprintf(msg,"searchMap retorna un elemento con clave %s", map->buckets[map->current]->key);
+      |                                                                                   ^~
+test.c: In function ‘erase_test1’:
+test.c:305:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘size’
+  305 |     if(map->size != 5){
+      |           ^~
+test.c: In function ‘first_test’:
+test.c:361:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  361 |     if(map->current != 0){
+      |           ^~
+test.c:379:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  379 |     if(map->current != 2){
+      |           ^~
+test.c: In function ‘next_test’:
+test.c:394:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  394 |     map->current=0;
+      |        ^~
+test.c:401:11: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  401 |     if(map->current!=2){
+      |           ^~
+test.c:407:8: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘current’
+  407 |     map->current=7;
+      |        ^~
+test.c: In function ‘enlarge_test’:
+test.c:441:29: error: ‘HashMap’ {aka ‘struct HashMap’} has no member named ‘capacity’; did you mean ‘capacidad’?
+  441 |         for(i = 0; i < map->capacity; i++){
+      |                             ^~~~~~~~
+      |                             capacidad
+3b9c3df

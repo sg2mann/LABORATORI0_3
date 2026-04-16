@@ -12,7 +12,7 @@ typedef struct HashMap HashMap;
 int enlarge_called=0;
 
 struct HashMap {
-    Pair ** par;
+    Pair ** buckets;
     long largo; //cantidad de datos/pairs en la tabla
     long capacidad; //capacidad de la tabla
     long actual; //indice del ultimo dato accedido
@@ -67,9 +67,9 @@ void insertMap(HashMap * mapa, char * clave, void * valor) {
     long posicion = hash(clave, mapa->capacidad);
     long primero = posicion;
 
-    while(mapa->par[posicion] != NULL && mapa->par[posicion]->key != NULL)
+    while(mapa->buckets[posicion] != NULL && mapa->buckets[posicion]->key != NULL)
         {
-            if(esIgual(mapa->par[posicion]->key, clave))
+            if(esIgual(mapa->buckets[posicion]->key, clave))
             {
                 return;
             }
@@ -79,7 +79,7 @@ void insertMap(HashMap * mapa, char * clave, void * valor) {
                 return;
             }
         }
-    mapa->par[posicion] = createPair(key, value);
+    mapa->buckets[posicion] = createPair(key, value);
     mapa->actual = posicion;
     mapa->capacidad++;
 }
