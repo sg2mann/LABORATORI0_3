@@ -197,13 +197,29 @@ Pair * nextMap(HashMap * mapa)
 //   d - Inicialice size a 0.
 //   e - Inserte los elementos válidos del arreglo old_buckets en el mapa (use la función insertMap que ya implementó).
 
-void enlarge(HashMap * map) {
+void enlarge(HashMap * mapa) 
+{
     enlarge_called = 1; //no borrar (testing purposes)
 
+    if (mapa == NULL)
+    {
+        return;
+    }
 
+    Pair ** oldBuckets = mapa->buckets;
+    long oldCapacity = mapa->capacity;
+
+    mapa->capacity *= 2;
+    mapa->buckets = (Pair **) calloc(mapa->capacity, sizeof(Pair *));
+    mapa->size = 0;
+    mapa->current = -1;
+    
+    for (long i = 0 ; i < oldCapacity ; i++)
+        {
+            if (oldBuckets[i] != NULL && oldBuckets[i]->key != NULL)
+            {
+                insertMap(mapa, oldBuckets[i]->key, oldBuckets[i]->value);
+            }
+        }
+    free(oldBuckets);
 }
-
-
-
-
-
