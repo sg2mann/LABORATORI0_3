@@ -601,3 +601,19 @@ Thu Apr 16 08:57:39 PM UTC 2026:
  tests:  5|4
 total_score: 20/60
 85de88a
+Sun Apr 19 05:44:06 AM UTC 2026: 
+ hashmap.c | 28 +++++++++++++++++++++++++---
+ 1 file changed, 25 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:5:
+hashmap.c: In function ‘searchMap’:
+hashmap.c:114:31: error: request for member ‘mapa’ in something not a structure or union
+  114 |     long posicion = hash(clave. mapa->capacity);
+      |                               ^
+hashmap.c:114:21: error: too few arguments to function ‘hash’
+  114 |     long posicion = hash(clave. mapa->capacity);
+      |                     ^~~~
+hashmap.c:28:6: note: declared here
+   28 | long hash( char * key, long capacity) {
+      |      ^~~~
+14320e4
