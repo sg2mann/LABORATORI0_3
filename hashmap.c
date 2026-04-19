@@ -111,7 +111,7 @@ Pair * searchMap(HashMap * mapa,  char * clave)
         return NULL;
     }
 
-    long posicion = hash(clave. mapa->capacity);
+    long posicion = hash(clave, mapa->capacity);
     long inicio = posicion;
 
     while (mapa->buckets[posicion] != NULL)
